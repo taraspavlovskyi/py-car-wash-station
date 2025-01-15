@@ -1,6 +1,3 @@
-from itertools import count
-
-
 class Car:
     def __init__(self, comfort_class: int, clean_mark: int, brand: str) -> None:
         self.comfort_class = comfort_class
@@ -31,5 +28,6 @@ class CarWashStation:
             car.clean_mark = self.clean_power
 
     def rate_service(self, single_rate: int) -> None:
+        total_ratings = self.average_rating * self.count_of_ratings
         self.count_of_ratings += 1
-        self.average_rating = round((self.average_rating * (self.count_of_ratings - 1) + single_rate) / self.count_of_ratings, 1)
+        self.average_rating = round((total_ratings + single_rate) / self.count_of_ratings, 1)
